@@ -1,5 +1,7 @@
 package com.xiao.game.Sandbox2DPlatform.Object;
 
+import com.xiao.game.Sandbox2DPlatform.Data.Point;
+
 public abstract class MoveableObj implements ChangeableObj
 {
 	protected Point point;
@@ -21,18 +23,6 @@ public abstract class MoveableObj implements ChangeableObj
 	public int getId()
 	{
 		return id;
-	}
-	
-	protected void setPoint(double x, double y)
-	{
-		point.x = x;
-		point.y = y;
-	}
-	
-	protected void setPoint(Point p)
-	{
-		point.x = p.x;
-		point.y = p.y;
 	}
 //	
 //	protected void moveTo(double x, double y, int heightMax, int heightMin, Context context)

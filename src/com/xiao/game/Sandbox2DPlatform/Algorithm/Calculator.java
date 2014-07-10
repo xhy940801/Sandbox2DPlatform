@@ -1,6 +1,6 @@
 package com.xiao.game.Sandbox2DPlatform.Algorithm;
 
-import com.xiao.game.Sandbox2DPlatform.Object.Point;
+import com.xiao.game.Sandbox2DPlatform.Data.Point;
 
 public class Calculator
 {

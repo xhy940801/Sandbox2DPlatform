@@ -1,8 +1,8 @@
 package com.xiao.game.Frame2D.Algorithm;
 
 import com.xiao.game.Frame2D.Config.MapConfig;
-import com.xiao.game.Sandbox2DPlatform.Object.MapCoordinate;
-import com.xiao.game.Sandbox2DPlatform.Object.Point;
+import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
+import com.xiao.game.Sandbox2DPlatform.Data.Point;
 
 public class Calculator
 {

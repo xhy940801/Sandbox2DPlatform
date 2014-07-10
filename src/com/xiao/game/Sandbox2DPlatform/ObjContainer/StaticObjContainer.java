@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
 import com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
-import com.xiao.game.Sandbox2DPlatform.Object.MapCoordinate;
 
 public class StaticObjContainer implements ObjContainer
 {

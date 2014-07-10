@@ -1,8 +1,8 @@
 package com.xiao.game.Sandbox2DPlatform.ObjFilter;
 
 import com.xiao.game.Sandbox2DPlatform.Algorithm.Calculator;
+import com.xiao.game.Sandbox2DPlatform.Data.Point;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
-import com.xiao.game.Sandbox2DPlatform.Object.Point;
 
 public class DistanceFilter extends Filter
 {
