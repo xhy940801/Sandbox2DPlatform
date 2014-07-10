@@ -1,8 +1,6 @@
 package com.xiao.game.Frame2D.Player;
 
-import com.xiao.game.Frame2D.Algorithm.Calculator;
 import com.xiao.game.Sandbox2DPlatform.Controller.Context;
-import com.xiao.game.Sandbox2DPlatform.Object.MapCoordinate;
 import com.xiao.game.Sandbox2DPlatform.Object.MoveableObj;
 import com.xiao.game.Sandbox2DPlatform.Object.Point;
 import com.xiao.game.Sandbox2DPlatform.Object.RulableObj;
@@ -48,12 +46,13 @@ public class GamePlayer extends MoveableObj implements RulableObj
 	
 	protected void doMove(int millisecond, Context context)
 	{
-		double dx = 
+		double dx = getDistance(millisecond, op.moveX);
+		double dy = getDistance(millisecond, op.moveY);
 	}
 	
 	protected double getDistance(int millisecond, float move)
 	{
-		return move * millisecond;
+		return move * millisecond * speed;
 	}
 	
 	private class Operation
