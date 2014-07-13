@@ -109,6 +109,7 @@ public class GamePlayer extends MoveableObj implements RulableObj
 	protected void doOperation(int millisecond, Context context)
 	{
 		opMap.get(op.operationCode).operate(op.operation, this, millisecond, context);
+		op.clearOperation();
 	}
 	
 	/**

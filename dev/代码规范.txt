@@ -1,0 +1,35 @@
+1. 全部命名用驼峰命名法命名
+2. 类名, 接口名首字母必须大写
+3. 每个Override的函数必须加上@Override
+3. 每个类与非@Override的函数必须写注释, 注释规范如下:
+   3.1. 用javadoc规范书写
+   3.2. 在注释行首/**后不加任何东西
+   3.3. 在接下来的几行离写这个函数或者类的用途
+   3.4. 在每个@param xxx和@return后, 紧接着一个空格和参数或返回值的类型, 后写这个参数的用途或注意事项等
+   3.5. 每个类的注释里都要说明这个类的作者, 如果类中的某个函数不是这个类的作者完成的也要写上作者
+   3.6. 如果一个人改了其他人的类, 需要在更改的地方加上注释说明更改者是谁, 更改原因是什么
+   example.1:
+        /**
+         * 进行player的操作处理
+         * @param millisecond int 上一个tick到这个tick的间隔时间,单位: 毫秒;
+         * @param context Context 游戏的上下文
+         * @see com.xiao.game.Sandbox2DPlatform.Controller.Context
+         */
+         protected void doOperation(int millisecond, Context context)
+         {
+             ... ...
+         }
+         ... ...
+   example.2:
+        /**
+         * 这是一个玩家类，负责对玩家的控制
+         * @author xiao.hy
+         * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
+         *      com.xiao.game.Sandbox2DPlatForm.Object.RulableObj
+         *      com.xiao.game.Sandbox2DPlatForm.Object.MoveableObj  
+         */
+         public class GamePlayer extends MoveableObj implements RulableObj
+         {
+             ... ...
+         }
+         ... ...
