@@ -1,5 +1,10 @@
 package com.xiao.game.Sandbox2DPlatform.Data;
 
+/**
+ * 世界坐标类
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate
+ */
 public class Point
 {
 	double x;

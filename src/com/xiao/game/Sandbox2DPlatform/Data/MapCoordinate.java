@@ -1,5 +1,10 @@
 package com.xiao.game.Sandbox2DPlatform.Data;
 
+/**
+ * 地图坐标类
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.Data.Point
+ */
 public class MapCoordinate
 {
 	int x, y;

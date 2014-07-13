@@ -7,22 +7,33 @@ import java.util.Map;
 import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
 import com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
+import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
 
+/**
+ * 静态物品容器类
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.ObjContainer.ObjContainer
+ */
 public class StaticObjContainer implements ObjContainer
 {
 	private final int width, height;
 	private int length;
 	private ObjFilter filter;
-	private GameObj[] objs;
-	private Map<Integer, GameObj> mObjs;
+	private StaticObj[] objs;
+	private Map<Integer, StaticObj> mObjs;
 
+	/**
+	 * 构造器
+	 * @param width int 地图的宽度
+	 * @param height int 地图的高度
+	 */
 	public StaticObjContainer(int width, int height)
 	{
 		this.width = width;
 		this.height = height;
 		length = 0;
-		objs = new GameObj[width * height];
-		mObjs = new HashMap<Integer, GameObj>();
+		objs = new StaticObj[width * height];
+		mObjs = new HashMap<Integer, StaticObj>();
 	}
 
 	@Override
@@ -32,7 +43,7 @@ public class StaticObjContainer implements ObjContainer
 	}
 
 	@Override
-	public GameObj getObjById(int id)
+	public StaticObj getObjById(int id)
 	{
 		return mObjs.get(id);
 	}
@@ -49,27 +60,53 @@ public class StaticObjContainer implements ObjContainer
 		return length;
 	}
 	
-	public GameObj getObjByCoordinate(int x, int y)
+	/**
+	 * 通过地图坐标获取静态物品
+	 * @param x int 地图x坐标
+	 * @param y int 地图y坐标
+	 * @return StaticObj 静态物品
+	 */
+	public StaticObj getObjByCoordinate(int x, int y)
 	{
 		return objs[y * width + x];
 	}
 	
-	public GameObj getObjByCoordinate(MapCoordinate mc)
+	/**
+	 * 通过地图坐标获取静态物品
+	 * @param mc MapCoordinate 地图坐标
+	 * @return 静态物品
+	 */
+	public StaticObj getObjByCoordinate(MapCoordinate mc)
 	{
 		return objs[mc.getY() * width + mc.getX()];
 	}
 	
-	protected void setObjByCoordinate(int x, int y, GameObj obj)
+	/**
+	 * 在给定的地图坐标设置静态物品
+	 * @param x int 地图x坐标
+	 * @param y int 地图y坐标
+	 * @param obj StaticObj 要设置的静态物品
+	 */
+	protected void setObjByCoordinate(int x, int y, StaticObj obj)
 	{
 		objs[y * width + x] = obj;
 	}
 	
-	protected void setObjByCoordinate(MapCoordinate mc, GameObj obj)
+	/**
+	 * 在给定的地图坐标设置静态物品
+	 * @param mc MapCoordinate 地图坐标
+	 * @param obj StaticObj 要设置的静态物品
+	 */
+	protected void setObjByCoordinate(MapCoordinate mc, StaticObj obj)
 	{
 		objs[mc.getY() * width + mc.getX()] = obj;
 	}
 	
-	public void put(GameObj gObj)
+	/**
+	 * 将物品放入静态地图
+	 * @param gObj 要放入的静态物品
+	 */
+	public void put(StaticObj gObj)
 	{
 		GameObj obj = this.getObjByCoordinate(gObj.getMapCoordinate());
 		this.setObjByCoordinate(gObj.getMapCoordinate(), gObj);
@@ -94,11 +131,19 @@ public class StaticObjContainer implements ObjContainer
 		return height;
 	}
 	
+	/**
+	 * 迭代器内部类
+	 * @author xiao.hy
+	 * @see java.util.Iterator
+	 */
 	private class ContainerIterator implements Iterator<GameObj>
 	{
-		private Iterator<GameObj> it;
-		private GameObj curObj;
+		private Iterator<StaticObj> it;
+		private StaticObj curObj;
 		
+		/**
+		 * 构造器,初始化
+		 */
 		public ContainerIterator()
 		{
 			it = mObjs.values().iterator();
@@ -112,9 +157,9 @@ public class StaticObjContainer implements ObjContainer
 		}
 
 		@Override
-		public GameObj next()
+		public StaticObj next()
 		{
-			GameObj gObj = curObj;
+			StaticObj gObj = curObj;
 			while(it.hasNext() && !filter.isPass(curObj = it.next()));
 			return gObj;
 		}

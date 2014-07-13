@@ -1,10 +1,16 @@
 package com.xiao.game.Sandbox2DPlatform.Data;
 
+/**
+ * 矩形类
+ * 坐标用double类型表示
+ * @author xiao.hy
+ */
 public class DRect
 {
 	private double left, top;
 	private double right, bottom;
 
+	//getter and setter
 	public double getLeft()
 	{
 		return left;

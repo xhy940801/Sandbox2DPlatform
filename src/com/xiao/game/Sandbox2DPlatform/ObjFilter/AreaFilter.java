@@ -3,10 +3,22 @@ package com.xiao.game.Sandbox2DPlatform.ObjFilter;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
+/**
+ * 区域过滤器
+ * 对物品是否在一个矩形区域进行过滤
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
+ */
 public class AreaFilter extends Filter
 {
 	private Point minPoint, maxPoint;
 
+	/**
+	 * 构造函数
+	 * 过滤器会过滤掉不在minPoint与maxPoint所圈定的矩形区域的物体
+	 * @param minPoint Point x, y值相对较小的点,如果以屏幕坐标来说就是左上的点
+	 * @param maxPoint Point x, y值相对较大的点,如果以屏幕坐标来说就是右下的点
+	 */
 	public AreaFilter(Point minPoint, Point maxPoint)
 	{
 		this.minPoint = new Point(minPoint);

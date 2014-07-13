@@ -1,5 +1,10 @@
 package com.xiao.game.Sandbox2DPlatform.Object;
 
+/**
+ * 可响应物体
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
+ */
 public interface InteractiveObj extends GameObj
 {
 	/**
