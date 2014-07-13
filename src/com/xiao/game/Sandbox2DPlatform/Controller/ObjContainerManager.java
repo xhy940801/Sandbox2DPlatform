@@ -3,6 +3,13 @@ package com.xiao.game.Sandbox2DPlatform.Controller;
 import com.xiao.game.Sandbox2DPlatform.ObjContainer.ObjContainer;
 import com.xiao.game.Sandbox2DPlatform.ObjContainer.StaticObjContainer;
 
+/**
+ * 物品保存器的管理器
+ * 用来管理物品保存器
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.ObjContainer.ObjContainer
+ * @see com.xiao.game.Sandbox2DPlatform.ObjContainer.StaticObjContainer
+ */
 public class ObjContainerManager
 {
 	private ObjContainer playerObjContainer;

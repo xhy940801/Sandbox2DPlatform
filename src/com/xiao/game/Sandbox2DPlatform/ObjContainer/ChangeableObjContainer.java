@@ -6,16 +6,25 @@ import java.util.Map;
 
 import com.xiao.game.Sandbox2DPlatform.ObjFilter.BlankFilter;
 import com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter;
+import com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
+/**
+ * ChangeableObj的容器
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.ObjContainer.ObjContainer
+ */
 public class ChangeableObjContainer implements ObjContainer
 {
-	Map<Integer, GameObj> objs;
+	Map<Integer, ChangeableObj> objs;
 	ObjFilter filter;
 
+	/**
+	 * 构造器,初始化各参数
+	 */
 	public ChangeableObjContainer()
 	{
-		objs = new HashMap<Integer, GameObj>();
+		objs = new HashMap<Integer, ChangeableObj>();
 		filter = BlankFilter.getBlankFilter();
 	}
 
@@ -26,7 +35,7 @@ public class ChangeableObjContainer implements ObjContainer
 	}
 
 	@Override
-	public GameObj getObjById(int id)
+	public ChangeableObj getObjById(int id)
 	{
 		return objs.get(id);
 	}
@@ -43,26 +52,48 @@ public class ChangeableObjContainer implements ObjContainer
 		return objs.size();
 	}
 	
-	public void add(GameObj gObj)
+	/**
+	 * 增加物品
+	 * @param gObj ChangeableObj 要增加的物品
+	 */
+	public void add(ChangeableObj gObj)
 	{
 		objs.put(gObj.getId(), gObj);
 	}
 	
-	public GameObj remove(int id)
+	/**
+	 * 删除物品
+	 * @param id int 要删除的物品id
+	 * @return ChangeableObj 被删除的物品
+	 */
+	public ChangeableObj remove(int id)
 	{
 		return objs.remove(id);
 	}
 	
-	public GameObj remove(GameObj gObj)
+	/**
+	 * 删除物品
+	 * @param gObj ChangeableObj 要删除的物品
+	 * @return ChangeableObj 被删除的物品
+	 */
+	public ChangeableObj remove(ChangeableObj gObj)
 	{
 		return objs.remove(gObj.getId());
 	}
 	
+	/**
+	 * 迭代器类
+	 * @author xiao.hy
+	 * @see java.util.Iterator
+	 */
 	private class ContainerIterator implements Iterator<GameObj>
 	{
-		private Iterator<GameObj> it;
-		private GameObj curObj;
+		private Iterator<ChangeableObj> it;
+		private ChangeableObj curObj;
 		
+		/**
+		 * 构造器
+		 */
 		public ContainerIterator()
 		{
 			it = objs.values().iterator();
@@ -76,9 +107,9 @@ public class ChangeableObjContainer implements ObjContainer
 		}
 
 		@Override
-		public GameObj next()
+		public ChangeableObj next()
 		{
-			GameObj gObj = curObj;
+			ChangeableObj gObj = curObj;
 			while(it.hasNext() && !filter.isPass(curObj = it.next()));
 			return gObj;
 		}

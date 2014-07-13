@@ -4,6 +4,12 @@ import com.xiao.game.Sandbox2DPlatform.Algorithm.Calculator;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
+/**
+ * 距离过滤器
+ * 会过滤掉与给定点的距离超过或等于给定距离的点
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
+ */
 public class DistanceFilter extends Filter
 {
 	private Point point;

@@ -2,8 +2,9 @@ package com.xiao.game.Sandbox2DPlatform.Object;
 
 public enum GameObjType
 {
-	OBJ_CHANGEABLE,		//»á¸ù¾ÝÊ±¼ä¸Ä±äµÄ
-	OBJ_ENTITATIVE,		//ÊµÌåµÄ,²»¿É´©¹ýµÄ
-	OBJ_PENETRABLE,		//¿É´©¹ýµÄ
-	OBJ_INTERACTIVE		//¿É½»»¥µÄ
+	OBJ_CHANGEABLE,		//åŠ¨æ€ç‰©ä½“
+	OBJ_INTERACTIVE,	//å¯å“åº”ç‰©ä½“
+	OBJ_RULABLE,		//å¯å“åº”ç‰©ä½“
+	OBJ_MOVEABLE,		//å¯ç§»åŠ¨ç‰©ä½“
+	OBJ_STATIC,			//é™æ€ç‰©ä½“
 }

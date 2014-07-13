@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
+/**
+ * 部分过滤器的抽象基类
+ * 提供了过滤器的一些方法的实现
+ * @author Administrator
+ * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter
+ */
 public abstract class Filter implements ObjFilter
 {
 
@@ -25,6 +31,12 @@ public abstract class Filter implements ObjFilter
 	public ObjFilter and(ObjFilter filter)
 	{
 		return new AndFilter(this, filter);
+	}
+	
+	@Override
+	public ObjFilter not()
+	{
+		return new NotFilter(this);
 	}
 
 	@Override

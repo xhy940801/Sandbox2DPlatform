@@ -9,6 +9,12 @@ import com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter;
 import com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
+/**
+ * 游戏程序主执行器
+ * @author xiao.hy
+ * @see com.xiao.game.Sandbox2DPlatform.Controller.Context
+ * 		com.xiao.game.Sandbox2DPlatform.Controller.Executable
+ */
 public class MainController implements Context, Executable
 {
 	private double flushDistance;
@@ -24,6 +30,10 @@ public class MainController implements Context, Executable
 		exe = this;
 	}
 	
+	/**
+	 * 执行下一帧
+	 * @param millisecond int 上一帧到这一帧之间间隔的毫秒数
+	 */
 	public void nextTick(int millisecond)
 	{
 		exe.nextTick(millisecond, this);

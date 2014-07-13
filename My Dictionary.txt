@@ -5,3 +5,4 @@ xswap
 yswap
 oy
 oz
+iterable

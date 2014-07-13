@@ -1,5 +1,10 @@
 package com.xiao.game.Sandbox2DPlatform.Data;
 
+/**
+ * 矩形类
+ * 坐标用int类型表示
+ * @author xiao.hy
+ */
 public class IRect
 {
 	private int left, top;

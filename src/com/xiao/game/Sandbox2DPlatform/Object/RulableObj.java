@@ -1,5 +1,10 @@
 package com.xiao.game.Sandbox2DPlatform.Object;
 
+/**
+ * 可被控制的物体的接口
+ * @author xiao.hy
+ * @see Open Declaration com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj
+ */
 public interface RulableObj extends ChangeableObj
 {
 	/**
@@ -8,6 +13,12 @@ public interface RulableObj extends ChangeableObj
 	 * @param y [-1, 1].
 	 */
 	public void move(float x, float y);
+	
+	/**
+	 * 下一个tick要执行的操作
+	 * @param operationCode int 操作码
+	 * @param operation Object 具体操作信息
+	 */
 	public void operate(int operationCode, Object operation);
 	
 }
