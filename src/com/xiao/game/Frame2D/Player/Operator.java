@@ -17,7 +17,7 @@ public interface Operator
 	 * @param millisecond int 上个tick到这个tick所经过的毫秒数
 	 * @param context Context 上下文
 	 */
-	public void operate(Object operation, GamePlayer player, int millisecond, Context context);
+	public void operate(Object operation, GamePlayer player, int millisecond, Context context, Onwer gp);
 	
 	/**
 	 * 获取操作码

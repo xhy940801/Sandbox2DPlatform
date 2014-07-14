@@ -18,14 +18,17 @@ import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
  *		com.xiao.game.Sandbox2DPlatForm.Object.RulableObj
- *		com.xiao.game.Sandbox2DPlatForm.Object.MoveableObj	
+ *		com.xiao.game.Sandbox2DPlatForm.Object.MoveableObj
+ *		com.xiao.game.Frame2D.Player.Player
  */
-public class GamePlayer extends MoveableObj implements RulableObj
+public class GamePlayer extends MoveableObj implements RulableObj, Onwer
 {
 	protected float speed;
 	protected Operation op;
 	protected int jumpHeight, fallingHeight;
 	protected float  collisionRadius;
+	
+	protected ItemsManager itemsManager;
 	
 	protected Map<Integer, Operator> opMap;
 
@@ -108,7 +111,7 @@ public class GamePlayer extends MoveableObj implements RulableObj
 	 */
 	protected void doOperation(int millisecond, Context context)
 	{
-		opMap.get(op.operationCode).operate(op.operation, this, millisecond, context);
+		opMap.get(op.operationCode).operate(op.operation, this, millisecond, context, this);
 		op.clearOperation();
 	}
 	
@@ -253,6 +256,12 @@ public class GamePlayer extends MoveableObj implements RulableObj
 			operationCode = OperationConfig.OP_NONE;
 			operation = null;
 		}
+	}
+
+	@Override
+	public ItemsManager getItemsManager()
+	{
+		return itemsManager;
 	}
 
 }
