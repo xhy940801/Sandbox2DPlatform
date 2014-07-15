@@ -13,11 +13,11 @@ public interface Operator
 	/**
 	 * 进行相应操作
 	 * @param operation Object 具体的操作
-	 * @param player GamePlayer 调用者
+	 * @param player Player 调用者
 	 * @param millisecond int 上个tick到这个tick所经过的毫秒数
 	 * @param context Context 上下文
 	 */
-	public void operate(Object operation, GamePlayer player, int millisecond, Context context, Onwer gp);
+	public void operate(Object operation, Player player, int millisecond, Context context);
 	
 	/**
 	 * 获取操作码

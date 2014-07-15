@@ -3,6 +3,7 @@ package com.xiao.game.Frame2D.Player;
 import java.util.Map;
 
 import com.xiao.game.Frame2D.Algorithm.Calculator;
+import com.xiao.game.Frame2D.Attribute.AttributionManager;
 import com.xiao.game.Frame2D.Config.MapConfig;
 import com.xiao.game.Frame2D.Config.OperationConfig;
 import com.xiao.game.Sandbox2DPlatform.Controller.Context;
@@ -10,18 +11,15 @@ import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
 import com.xiao.game.Sandbox2DPlatform.ObjContainer.StaticObjContainer;
 import com.xiao.game.Sandbox2DPlatform.Object.MoveableObj;
-import com.xiao.game.Sandbox2DPlatform.Object.RulableObj;
 import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
 
 /**
  * 这是一个玩家类，负责对玩家的控制
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
- *		com.xiao.game.Sandbox2DPlatForm.Object.RulableObj
- *		com.xiao.game.Sandbox2DPlatForm.Object.MoveableObj
  *		com.xiao.game.Frame2D.Player.Player
  */
-public class GamePlayer extends MoveableObj implements RulableObj, Onwer
+public class GamePlayer extends MoveableObj implements Player
 {
 	protected float speed;
 	protected Operation op;
@@ -29,6 +27,7 @@ public class GamePlayer extends MoveableObj implements RulableObj, Onwer
 	protected float  collisionRadius;
 	
 	protected ItemsManager itemsManager;
+	protected AttributionManager attributionManager;
 	
 	protected Map<Integer, Operator> opMap;
 
@@ -111,7 +110,7 @@ public class GamePlayer extends MoveableObj implements RulableObj, Onwer
 	 */
 	protected void doOperation(int millisecond, Context context)
 	{
-		opMap.get(op.operationCode).operate(op.operation, this, millisecond, context, this);
+		opMap.get(op.operationCode).operate(op.operation, this, millisecond, context);
 		op.clearOperation();
 	}
 	
@@ -262,6 +261,12 @@ public class GamePlayer extends MoveableObj implements RulableObj, Onwer
 	public ItemsManager getItemsManager()
 	{
 		return itemsManager;
+	}
+
+	@Override
+	public AttributionManager getAttributionManager()
+	{
+		return attributionManager;
 	}
 
 }

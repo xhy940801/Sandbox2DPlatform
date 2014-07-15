@@ -9,7 +9,7 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
  *		com.xiao.game.Frame2D.Player.ItemsManager
  */
-public interface Onwer extends GameObj
+public interface ItemsOnwer extends GameObj
 {
 	/**
 	 * 返回物品管理器
