@@ -22,6 +22,7 @@ public class MainController implements Context, Executable
 	private ObjContainerManager objContainerManager;
 	private MessageDispenser messageDispenser;
 	private MessageCallBackRegister messageCallBackRegister;
+	private GameTimerManager gameTimerManager;
 	
 	private Executable exe;
 
@@ -99,4 +100,8 @@ public class MainController implements Context, Executable
 		this.flushDistance = flushDistance;
 	}
 
+	public GameTimerManager getGameTimerManager()
+	{
+		return gameTimerManager;
+	}
 }
