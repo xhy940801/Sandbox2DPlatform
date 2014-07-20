@@ -1,6 +1,4 @@
-package com.xiao.game.Sandbox2DPlatform.ObjFilter;
-
-import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
+package com.xiao.game.Sandbox2DPlatform.Filter;
 
 /**
  * NotFilter
@@ -8,27 +6,27 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
  */
-public class NotFilter extends Filter
+public class NotFilter<T> extends ObjFilter<T>
 {
-	private ObjFilter filter;
+	private Filter<T> filter;
 	
 	/**
 	 * 构造函数
 	 * @param filter 执行非运算的过滤器
 	 */
-	public NotFilter(ObjFilter filter)
+	public NotFilter(Filter<T> filter)
 	{
 		this.filter = filter;
 	}
 
 	@Override
-	public boolean isPass(GameObj gObj)
+	public boolean isPass(T obj)
 	{
-		return !filter.isPass(gObj);
+		return !filter.isPass(obj);
 	}
-
+	
 	@Override
-	public ObjFilter not()
+	public Filter<T> not()
 	{
 		return filter;
 	}

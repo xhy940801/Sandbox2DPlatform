@@ -1,6 +1,4 @@
-package com.xiao.game.Sandbox2DPlatform.ObjFilter;
-
-import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
+package com.xiao.game.Sandbox2DPlatform.Filter;
 
 /**
  * OrFilter
@@ -8,23 +6,23 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
  */
-public class OrFilter extends Filter
+public class OrFilter<T> extends ObjFilter<T>
 {
-	ObjFilter fa, fb;
+	Filter<T> fa, fb;
 
 	/**
 	 * 构造函数
 	 * @param fa 执行或操作的第一个过滤器
 	 * @param fb 执行或操作的第二个过滤器
 	 */
-	public OrFilter(ObjFilter fa, ObjFilter fb)
+	public OrFilter(Filter<T> fa, Filter<T> fb)
 	{
 		this.fa = fa;
 		this.fb = fb;
 	}
 
 	@Override
-	public boolean isPass(GameObj gObj)
+	public boolean isPass(T gObj)
 	{
 		return fa.isPass(gObj) || fb.isPass(gObj);
 	}

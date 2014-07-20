@@ -1,5 +1,7 @@
 package com.xiao.game.Sandbox2DPlatform.Object;
 
+import com.xiao.game.Sandbox2DPlatform.Message.ReturnData;
+
 /**
  * 可响应物体
  * @author xiao.hy
@@ -7,16 +9,20 @@ package com.xiao.game.Sandbox2DPlatform.Object;
  */
 public interface InteractiveObj extends GameObj
 {
+	static public final int IGNORE = 0;
+	static public final int TRANSFER = 1;
+	static public final int CONSUME = -1;
+	
 	/**
 	 * Function-Type: CallBack
-	 * @param senderObjId The id of message sender
-	 * @param senderTypeDetail the type of message sender
+	 * @param senderObj GameObj The message sender
+	 * @param senderString[] TypeDetail the type of message sender
 	 * @param msgCode message code
 	 * @param msg detail message
 	 * @return A integer value.
-	 * 		if(@return > 0) the message has been dispose and it will transfer to next interactive object.
-	 * 		if(@return == 0) the function ignore the message.
-	 * 		if(@return < 0) the function dispose and consume the message.
+	 * 		if(@return == TRANSFER) the message has been dispose and it will transfer to next interactive object.
+	 * 		if(@return == IGNORE) the function ignore the message.
+	 * 		if(@return == CONSUME) the function dispose and consume the message.
 	 */
-	public int responseMessage(int senderObjId, String senderTypeDetail, int msgCode, Object msg);
+	public int responseMessage(GameObj senderObj, String[] senderTypeDetail, int msgCode, Object msg, ReturnData returnData);
 }

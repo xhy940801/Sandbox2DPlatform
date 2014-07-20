@@ -13,6 +13,12 @@ public class MapCoordinate
 		this.x = x;
 		this.y = y;
 	}
+	
+	public MapCoordinate(MapCoordinate mapCoordinate)
+	{
+		this.x = mapCoordinate.x;
+		this.y = mapCoordinate.y;
+	}
 
 	public int getX()
 	{

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import com.xiao.game.Sandbox2DPlatform.ObjFilter.BlankFilter;
-import com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter;
+import com.xiao.game.Sandbox2DPlatform.Filter.Filter;
+import com.xiao.game.Sandbox2DPlatform.GameObjFilter.GameBlankFilter;
 import com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
@@ -17,7 +17,7 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 public class ChangeableObjContainer implements ObjContainer
 {
 	Map<Integer, ChangeableObj> objs;
-	ObjFilter filter;
+	Filter<GameObj> filter;
 
 	/**
 	 * 构造器,初始化各参数
@@ -25,7 +25,7 @@ public class ChangeableObjContainer implements ObjContainer
 	public ChangeableObjContainer()
 	{
 		objs = new HashMap<Integer, ChangeableObj>();
-		filter = BlankFilter.getBlankFilter();
+		filter = GameBlankFilter.getBlankFilter();
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class ChangeableObjContainer implements ObjContainer
 	}
 
 	@Override
-	public void setFilter(ObjFilter filter)
+	public void setFilter(Filter<GameObj> filter)
 	{
 		this.filter = filter;
 	}

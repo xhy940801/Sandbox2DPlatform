@@ -1,4 +1,4 @@
-package com.xiao.game.Sandbox2DPlatform.ObjFilter;
+package com.xiao.game.Sandbox2DPlatform.GameObjFilter;
 
 import com.xiao.game.Sandbox2DPlatform.Algorithm.Calculator;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
@@ -10,7 +10,7 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
  */
-public class DistanceFilter extends Filter
+public class DistanceFilter extends GameObjFilter
 {
 	private Point point;
 	private double distance;

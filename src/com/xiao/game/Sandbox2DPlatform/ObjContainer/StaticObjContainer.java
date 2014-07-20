@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
-import com.xiao.game.Sandbox2DPlatform.ObjFilter.ObjFilter;
+import com.xiao.game.Sandbox2DPlatform.Filter.Filter;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
 
@@ -18,7 +18,7 @@ public class StaticObjContainer implements ObjContainer
 {
 	private final int width, height;
 	private int length;
-	private ObjFilter filter;
+	private Filter<GameObj> filter;
 	private StaticObj[] objs;
 	private Map<Integer, StaticObj> mObjs;
 
@@ -49,7 +49,7 @@ public class StaticObjContainer implements ObjContainer
 	}
 
 	@Override
-	public void setFilter(ObjFilter filter)
+	public void setFilter(Filter<GameObj> filter)
 	{
 		this.filter = filter;
 	}

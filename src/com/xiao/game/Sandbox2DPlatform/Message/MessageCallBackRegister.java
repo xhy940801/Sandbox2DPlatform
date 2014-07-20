@@ -19,9 +19,18 @@ public interface MessageCallBackRegister
 	public void register(InteractiveObj gObj, String[] msgType);
 	
 	/**
-	 * 取消注册消息监听器
+	 * 注销消息监听器
 	 * @param gObj InteractiveObj 消息的注册者
 	 * @param msgType String[] 接受的消息类型
+	 * @return boolean 是否存在指定消息
 	 */
 	public boolean deregister(InteractiveObj gObj, String[] msgType);
+	
+	/**
+	 * 递归注销类型及其子类型下的相同消息监听器
+	 * @param gObj InteractiveObj 消息的注册者
+	 * @param msgType String[] 接受的消息类型
+	 * @return boolean 共注销消息个数
+	 */
+	public int deregisterRecursion(InteractiveObj gObj, String[] msgType);
 }
