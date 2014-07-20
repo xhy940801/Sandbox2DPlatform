@@ -11,5 +11,5 @@ import com.xiao.game.Sandbox2DPlatform.Object.RulableObj;
  */
 public interface Player extends RulableObj, ItemsOnwer, AttributionOnwer
 {
-
+	static public final int PREVENT_MOVE = -1;
 }

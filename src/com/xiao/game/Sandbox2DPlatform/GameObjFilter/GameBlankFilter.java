@@ -16,7 +16,7 @@ public class GameBlankFilter extends BlankFilter<GameObj>
 	
 	/**
 	 * GameBlankFilter的静态工厂
-	 * @return
+	 * @return GameBlankFilter GameBlankFilter对象
 	 */
 	static public GameBlankFilter getBlankFilter()
 	{

@@ -1,0 +1,22 @@
+1.PLAYER_MOVE_SUCCESS:
+	在Player移动成功是广播此消息
+	消息类型:
+		SYSTEM.PLAYER.MOVE.SUCCESS
+	具体消息:
+		移动到的位置
+		type: Point
+	返回信息:
+		无返回信息
+
+2.PLAYER_MOVE_TRY
+	在Player尝试移动时发出此消息
+	消息类型:
+		SYSTEM.PLAYER.MOVE.TRY
+	具体消息:
+		尝试移动到的位置
+		type: Point
+	返回信息:
+		returnCode:
+			返回码, 如果此码为com.xiao.game.Frame2D.Player.Player.PREVENT_MOVE = -1, 则代表期望阻止此次移动
+		data:
+			忽略此参数

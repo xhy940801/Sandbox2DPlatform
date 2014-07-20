@@ -6,14 +6,14 @@ package com.xiao.game.Sandworm.Common;
  */
 public class IdFactory
 {
-	static private int curId = 0;
+	static private int curGameObjId = 0;
 	
 	/**
-	 * 获取id
+	 * 获取GameObj的id
 	 * @return int id
 	 */
-	static public int getId()
+	static public int getGameObjId()
 	{
-		return curId++;
+		return curGameObjId++;
 	}
 }

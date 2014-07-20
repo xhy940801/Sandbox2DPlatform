@@ -1,14 +1,18 @@
 package com.xiao.game.Frame2D.Player;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import com.xiao.game.Frame2D.Algorithm.Calculator;
 import com.xiao.game.Frame2D.Attribute.AttributionManager;
 import com.xiao.game.Frame2D.Config.MapConfig;
 import com.xiao.game.Frame2D.Config.OperationConfig;
+import com.xiao.game.Frame2D.Const.SystemMsgType;
 import com.xiao.game.Sandbox2DPlatform.Controller.Context;
 import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
+import com.xiao.game.Sandbox2DPlatform.Message.ReturnData;
 import com.xiao.game.Sandbox2DPlatform.ObjContainer.StaticObjContainer;
 import com.xiao.game.Sandbox2DPlatform.Object.MoveableObj;
 import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
@@ -99,6 +103,12 @@ public class GamePlayer extends MoveableObj implements Player
 		{
 			point.setX(x);
 			point.setY(y);
+			List<ReturnData> rds = new ArrayList<ReturnData>(10);
+			context.getMessageDispenser().boardCastMessage(this, SystemMsgType.PLAYER_MOVE_TRY, 0, this.getCenterPoint(), rds);
+			for(ReturnData rd : rds)
+				if(rd.getReturnCode() == Player.PREVENT_MOVE)
+					return;
+			context.getMessageDispenser().boardCastMessage(this, SystemMsgType.PLAYER_MOVE_SUCCESS, 0, this.getCenterPoint(), null);
 		}
 	}
 	

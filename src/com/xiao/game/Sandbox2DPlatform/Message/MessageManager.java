@@ -25,6 +25,13 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 	@Override
 	public int boardCastMessage(GameObj senderObj, String[] msgType, int msgCode, Object msg, List<ReturnData> returnDatas, Filter<GameObj> filter)
 	{
+		if(returnDatas == null)
+			return this.bcMsgWithoutRd(senderObj, msgType, msgCode, msg, filter);
+		return this.bcMsgWithRd(senderObj, msgType, msgCode, msg, returnDatas, filter);
+	}
+	
+	private int bcMsgWithRd(GameObj senderObj, String[] msgType, int msgCode, Object msg, List<ReturnData> returnDatas, Filter<GameObj> filter)
+	{
 		Node curNode = headNode;
 		int count = 0;
 		for(String subType : msgType)
@@ -43,6 +50,29 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 						returnDatas.add(returnData);
 						returnData = new ReturnData();
 					}
+					++count;
+					if(res == InteractiveObj.CONSUME)
+						return count;
+				}
+			curNode = curNode.pullNode(subType);
+		}
+		return count;
+	}
+	
+	private int bcMsgWithoutRd(GameObj senderObj, String[] msgType, int msgCode, Object msg, Filter<GameObj> filter)
+	{
+		Node curNode = headNode;
+		int count = 0;
+		for(String subType : msgType)
+		{
+			if(curNode.interactiveObjs != null)
+				for(InteractiveObj gObj : curNode.interactiveObjs)
+				{
+					if(!filter.isPass(gObj))
+						continue;
+					int res = gObj.responseMessage(senderObj, msgType, msgCode, msg, returnData);
+					if(res == InteractiveObj.IGNORE)
+						continue;
 					++count;
 					if(res == InteractiveObj.CONSUME)
 						return count;
