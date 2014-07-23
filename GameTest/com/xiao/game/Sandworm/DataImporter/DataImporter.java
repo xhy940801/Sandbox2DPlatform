@@ -13,7 +13,7 @@ public class DataImporter
 	 * @param o
 	 * @return
 	 */
-	static public Reader getReader(Object o)
+	static public Reader getReader(Object feature)
 	{
 		return null;
 	}

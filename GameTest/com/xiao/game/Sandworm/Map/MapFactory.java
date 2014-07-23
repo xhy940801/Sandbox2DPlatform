@@ -12,13 +12,13 @@ public class MapFactory
 {	
 	/**
 	 * 初始化地图
-	 * @param o Object 特征码(根据此特征码加载相应的数据)
+	 * @param feature Object 标识(根据此标识加载相应的数据)
 	 * @return MapBlock[] 地图数据
 	 * @see com.xiao.game.Sandworm.DataImporter.DataImporter
 	 */
-	static public MapBlock[] initMap(Object o)
+	static public MapBlock[] initMap(Object feature)
 	{
-		StringBlockReader sbReader = new StringBlockReader(DataImporter.getReader(o));
+		StringBlockReader sbReader = new StringBlockReader(DataImporter.getReader(feature));
 		int width, height;
 		try
 		{
