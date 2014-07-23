@@ -1,15 +1,20 @@
 package com.xiao.game.Sandworm.DataImporter;
 
+import java.io.Reader;
+
 /**
- * 数据载入接口
+ * 数据载入器
  * @author xiao.hy
  */
-public interface DataImporter
+public class DataImporter
 {
 	/**
-	 * 根据标识(比如文件名)载入数据
-	 * @param feature Object 标识
-	 * @return byte[] 数据
+	 * 此函数未完成
+	 * @param o
+	 * @return
 	 */
-	public byte[] getData(Object feature);
+	static public Reader getReader(Object o)
+	{
+		return null;
+	}
 }
