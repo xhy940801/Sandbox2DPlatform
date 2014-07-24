@@ -1,6 +1,4 @@
-package com.xiao.game.Sandbox2DPlatform.ObjFilter;
-
-import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
+package com.xiao.game.Sandbox2DPlatform.Filter;
 
 /**
  * AndFilter
@@ -8,25 +6,25 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
  */
-public class AndFilter extends Filter
+public class AndFilter<T> extends ObjFilter<T>
 {
-	ObjFilter fa, fb;
+	Filter<T> fa, fb;
 
 	/**
 	 * 构造函数
 	 * @param fa 执行与操作的第一个过滤器
 	 * @param fb 执行与操作的第二个过滤器
 	 */
-	public AndFilter(ObjFilter fa, ObjFilter fb)
+	public AndFilter(Filter<T> fa, Filter<T> fb)
 	{
 		this.fa = fa;
 		this.fb = fb;
 	}
 
 	@Override
-	public boolean isPass(GameObj gObj)
+	public boolean isPass(T obj)
 	{
-		return fa.isPass(gObj) && fb.isPass(gObj);
+		return fa.isPass(obj) && fb.isPass(obj);
 	}
 
 }

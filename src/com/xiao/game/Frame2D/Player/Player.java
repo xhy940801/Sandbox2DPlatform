@@ -1,6 +1,6 @@
 package com.xiao.game.Frame2D.Player;
 
-import com.xiao.game.Sandbox2DPlatform.Object.RulableObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Rulable;
 
 /**
  * 玩家接口
@@ -9,7 +9,7 @@ import com.xiao.game.Sandbox2DPlatform.Object.RulableObj;
  *		com.xiao.game.Sandbox2DPlatForm.Object.MoveableObj
  *		com.xiao.game.Frame2D.Player.AttributionOnwer
  */
-public interface Player extends RulableObj, ItemsOnwer, AttributionOnwer
+public interface Player extends Rulable, ItemsOnwer, AttributionOnwer
 {
-
+	static public final int PREVENT_MOVE = -1;
 }

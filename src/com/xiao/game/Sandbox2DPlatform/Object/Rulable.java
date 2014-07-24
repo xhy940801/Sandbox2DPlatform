@@ -5,7 +5,7 @@ package com.xiao.game.Sandbox2DPlatform.Object;
  * @author xiao.hy
  * @see Open Declaration com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj
  */
-public interface RulableObj extends ChangeableObj
+public interface Rulable extends Changeable
 {
 	/**
 	 * Set the direction and speed and when next tick, position of the GameObj will be flush.

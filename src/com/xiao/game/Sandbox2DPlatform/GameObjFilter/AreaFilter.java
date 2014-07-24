@@ -1,6 +1,7 @@
-package com.xiao.game.Sandbox2DPlatform.ObjFilter;
+package com.xiao.game.Sandbox2DPlatform.GameObjFilter;
 
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
+import com.xiao.game.Sandbox2DPlatform.Filter.Filter;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
 /**
@@ -9,7 +10,7 @@ import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.ObjFilter.Filter
  */
-public class AreaFilter extends Filter
+public class AreaFilter extends GameObjFilter
 {
 	private Point minPoint, maxPoint;
 
@@ -34,7 +35,7 @@ public class AreaFilter extends Filter
 	}
 	
 	@Override
-	public ObjFilter and(ObjFilter filter)
+	public Filter<GameObj> and(Filter<GameObj> filter)
 	{
 		if(filter instanceof AreaFilter)
 		{
@@ -46,7 +47,7 @@ public class AreaFilter extends Filter
 			double maxY = af.maxPoint.getY() < this.maxPoint.getY() ? af.maxPoint.getY() : this.maxPoint.getY();
 			
 			if(minX >= maxX || minY >= maxY)
-				return BlankFilter.getBlankFilter();
+				return GameBlankFilter.getBlankFilter();
 			else
 				return new AreaFilter(new Point(minX, minY), new Point(maxX, maxY));
 		}

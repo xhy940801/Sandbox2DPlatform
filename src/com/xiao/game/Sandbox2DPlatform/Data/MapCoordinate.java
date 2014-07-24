@@ -13,6 +13,12 @@ public class MapCoordinate
 		this.x = x;
 		this.y = y;
 	}
+	
+	public MapCoordinate(MapCoordinate mapCoordinate)
+	{
+		this.x = mapCoordinate.x;
+		this.y = mapCoordinate.y;
+	}
 
 	public int getX()
 	{
@@ -50,5 +56,11 @@ public class MapCoordinate
 		}
 		else
 			return false;
+	}
+	
+	@Override
+	public int hashCode()
+	{
+		return (x + ":" + y).hashCode();
 	}
 }

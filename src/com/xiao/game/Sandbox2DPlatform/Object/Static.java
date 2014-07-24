@@ -5,7 +5,7 @@ package com.xiao.game.Sandbox2DPlatform.Object;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
  */
-public interface StaticObj extends GameObj
+public interface Static extends GameObj
 {
 	/**
 	 * 获取本静态物体的高度

@@ -7,3 +7,5 @@ oy
 oz
 iterable
 callable
+parsable
+param
