@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.xiao.game.Sandbox2DPlatform.Filter.Filter;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
-import com.xiao.game.Sandbox2DPlatform.Object.InteractiveObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Interactive;
 
 /**
  * 消息分发器(广播器)
@@ -40,11 +40,11 @@ public interface MessageDispenser
 	 * 发送消息给特定人
 	 * @param senderObj GameObj 发送者的GameObj
 	 * @param msgType String[] 发送信息类别
-	 * @param receiverObj InteractiveObj 接受者的GameObj
+	 * @param receiverObj Interactive 接受者的GameObj
 	 * @param msgCode int 消息代码
 	 * @param msg Object 详细消息信息
 	 * @param returnData ReturnData 返回的消息
 	 * @return boolean 对方是否处理消息
 	 */
-	public boolean sendMessage(GameObj senderObj, String[] msgType, InteractiveObj receiverObj, int msgCode, Object msg, ReturnData returnData);
+	public boolean sendMessage(GameObj senderObj, String[] msgType, Interactive receiverObj, int msgCode, Object msg, ReturnData returnData);
 }

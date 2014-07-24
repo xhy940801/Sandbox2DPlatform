@@ -6,7 +6,7 @@ import com.xiao.game.Sandbox2DPlatform.GameObjFilter.GameBlankFilter;
 import com.xiao.game.Sandbox2DPlatform.Message.MessageCallBackRegister;
 import com.xiao.game.Sandbox2DPlatform.Message.MessageDispenser;
 import com.xiao.game.Sandbox2DPlatform.ObjContainer.ObjContainer;
-import com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Changeable;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
 
 /**
@@ -51,7 +51,7 @@ public class MainController implements Context, Executable
 		ObjContainer changeableObjContainer = objContainerManager.getChangeableObjContainer();
 		changeableObjContainer.setFilter(filter);
 		for(GameObj gObj : changeableObjContainer)
-			((ChangeableObj) gObj).nextTick(millisecond, this);
+			((Changeable) gObj).nextTick(millisecond, this);
 	}
 
 	@Override

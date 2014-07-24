@@ -1,15 +1,16 @@
 package com.xiao.game.Sandworm.Map;
 
 import com.xiao.game.Frame2D.Algorithm.Calculator;
+import com.xiao.game.Sandbox2DPlatform.Controller.Context;
 import com.xiao.game.Sandbox2DPlatform.Data.MapCoordinate;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
-import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Static;
 
 /**
  * 游戏地图块类
  * @author xiao.hy
  */
-public class MapBlock implements StaticObj
+public class MapBlock implements Static
 {
 	private MapCoordinate mc;
 	private final int id;
@@ -73,6 +74,18 @@ public class MapBlock implements StaticObj
 	public void setHeight(int height)
 	{
 		this.height = height;
+	}
+
+	@Override
+	public boolean init(Context context)
+	{
+		return true;
+	}
+
+	@Override
+	public boolean release(Context context)
+	{
+		return true;
 	}
 
 }

@@ -1,17 +1,17 @@
 package com.xiao.game.Sandbox2DPlatform.Object;
 
+import com.xiao.game.Sandbox2DPlatform.Data.MaterialObj;
 import com.xiao.game.Sandbox2DPlatform.Data.Point;
 
 /**
  * 可被控制的物体的抽象类
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
- * 		com.xiao.game.Sandbox2DPlatform.Object.ChangeableObj
+ * 		com.xiao.game.Sandbox2DPlatform.Object.Changeable
  */
-public abstract class MoveableObj implements ChangeableObj
+public abstract class MoveableObj extends MaterialObj implements Changeable
 {
 	protected Point point;
-	protected final int id;
 
 	/**
 	 * 构造函数
@@ -20,8 +20,8 @@ public abstract class MoveableObj implements ChangeableObj
 	 */
 	public MoveableObj(Point point, int id)
 	{
+		super(id);
 		this.point = new Point(point);
-		this.id = id;
 	}
 
 	@Override
@@ -35,17 +35,5 @@ public abstract class MoveableObj implements ChangeableObj
 	{
 		return id;
 	}
-//	
-//	protected void moveTo(double x, double y, int heightMax, int heightMin, Context context)
-//	{
-//		MapCoordinate mc = this.toCoordinate(x, y);
-//		StaticObjContainer sObjContainer = context.getObjContainerManager().getStaticObjContainer();
-//		StaticObj sObj = (StaticObj) sObjContainer.getObjByCoordinate(mc);
-//		if(heightMax >= sObj.height() && heightMin <= sObj.height())
-//			this.setPoint(x, y);
-//	}
-//	
-//	protected abstract MapCoordinate toCoordinate(double x, double y);
-//	protected abstract MapCoordinate toCoordinate(Point point);
 
 }

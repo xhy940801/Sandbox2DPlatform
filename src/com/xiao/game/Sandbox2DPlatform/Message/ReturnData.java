@@ -1,6 +1,6 @@
 package com.xiao.game.Sandbox2DPlatform.Message;
 
-import com.xiao.game.Sandbox2DPlatform.Object.InteractiveObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Interactive;
 
 /**
  * 返回的信息
@@ -10,7 +10,7 @@ public class ReturnData
 {
 	static public int NONE_DATA = 0;	//空返回码, 此返回码表示没有返回任何东西
 	
-	private InteractiveObj obj;			//返回者的objId
+	private Interactive obj;			//返回者的objId
 	private Object data;		//具体返回信息
 	private int returnCode;		//返回码
 	
@@ -41,12 +41,12 @@ public class ReturnData
 		this.returnCode = returnCode;
 	}
 
-	InteractiveObj getObj()
+	Interactive getObj()
 	{
 		return obj;
 	}
 
-	void setObj(InteractiveObj obj)
+	void setObj(Interactive obj)
 	{
 		this.obj = obj;
 	}

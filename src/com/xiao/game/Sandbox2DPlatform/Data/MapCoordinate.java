@@ -57,4 +57,10 @@ public class MapCoordinate
 		else
 			return false;
 	}
+	
+	@Override
+	public int hashCode()
+	{
+		return (x + ":" + y).hashCode();
+	}
 }

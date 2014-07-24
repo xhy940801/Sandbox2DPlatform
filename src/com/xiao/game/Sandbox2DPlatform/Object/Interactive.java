@@ -7,7 +7,7 @@ import com.xiao.game.Sandbox2DPlatform.Message.ReturnData;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
  */
-public interface InteractiveObj extends GameObj
+public interface Interactive extends GameObj
 {
 	static public final int IGNORE = 0;
 	static public final int TRANSFER = 1;

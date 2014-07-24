@@ -8,7 +8,7 @@ import java.util.Map;
 import com.xiao.game.Sandbox2DPlatform.Filter.Filter;
 import com.xiao.game.Sandbox2DPlatform.GameObjFilter.GameBlankFilter;
 import com.xiao.game.Sandbox2DPlatform.Object.GameObj;
-import com.xiao.game.Sandbox2DPlatform.Object.InteractiveObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Interactive;
 
 public class MessageManager implements MessageCallBackRegister, MessageDispenser
 {
@@ -37,12 +37,12 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 		for(String subType : msgType)
 		{
 			if(curNode.interactiveObjs != null)
-				for(InteractiveObj gObj : curNode.interactiveObjs)
+				for(Interactive gObj : curNode.interactiveObjs)
 				{
 					if(!filter.isPass(gObj))
 						continue;
 					int res = gObj.responseMessage(senderObj, msgType, msgCode, msg, returnData);
-					if(res == InteractiveObj.IGNORE)
+					if(res == Interactive.IGNORE)
 						continue;
 					if(returnData.getReturnCode() != ReturnData.NONE_DATA)
 					{
@@ -51,7 +51,7 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 						returnData = new ReturnData();
 					}
 					++count;
-					if(res == InteractiveObj.CONSUME)
+					if(res == Interactive.CONSUME)
 						return count;
 				}
 			curNode = curNode.pullNode(subType);
@@ -66,15 +66,15 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 		for(String subType : msgType)
 		{
 			if(curNode.interactiveObjs != null)
-				for(InteractiveObj gObj : curNode.interactiveObjs)
+				for(Interactive gObj : curNode.interactiveObjs)
 				{
 					if(!filter.isPass(gObj))
 						continue;
 					int res = gObj.responseMessage(senderObj, msgType, msgCode, msg, returnData);
-					if(res == InteractiveObj.IGNORE)
+					if(res == Interactive.IGNORE)
 						continue;
 					++count;
-					if(res == InteractiveObj.CONSUME)
+					if(res == Interactive.CONSUME)
 						return count;
 				}
 			curNode = curNode.pullNode(subType);
@@ -83,13 +83,13 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 	}
 
 	@Override
-	public boolean sendMessage(GameObj senderObj, String[] msgType, InteractiveObj receiverObj, int msgCode, Object msg, ReturnData returnData)
+	public boolean sendMessage(GameObj senderObj, String[] msgType, Interactive receiverObj, int msgCode, Object msg, ReturnData returnData)
 	{
-		return receiverObj.responseMessage(senderObj, msgType, msgCode, msg, returnData) != InteractiveObj.IGNORE;
+		return receiverObj.responseMessage(senderObj, msgType, msgCode, msg, returnData) != Interactive.IGNORE;
 	}
 
 	@Override
-	public void register(InteractiveObj gObj, String[] msgType)
+	public void register(Interactive gObj, String[] msgType)
 	{
 		Node curNode = headNode;
 		for(String subType : msgType)
@@ -98,7 +98,7 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 	}
 
 	@Override
-	public boolean deregister(InteractiveObj gObj, String[] msgType)
+	public boolean deregister(Interactive gObj, String[] msgType)
 	{
 		Node curNode = headNode;
 		for(String subType : msgType)
@@ -107,7 +107,7 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 	}
 	
 	@Override
-	public int deregisterRecursion(InteractiveObj gObj, String[] msgType)
+	public int deregisterRecursion(Interactive gObj, String[] msgType)
 	{
 		Node curNode = headNode;
 		for(String subType : msgType)
@@ -115,7 +115,7 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 		return this.deregister(gObj, curNode);
 	}
 	
-	private int deregister(InteractiveObj gObj, Node node)
+	private int deregister(Interactive gObj, Node node)
 	{
 		if(node == null)
 			return 0;
@@ -131,7 +131,7 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 	private class Node
 	{
 		Map<String, Node> sons = null;
-		List<InteractiveObj> interactiveObjs = null;
+		List<Interactive> interactiveObjs = null;
 		
 		@SuppressWarnings("unused")
 		Node getNode(String nodeName)
@@ -141,14 +141,14 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 			return sons.get(nodeName);
 		}
 		
-		void push(InteractiveObj obj)
+		void push(Interactive obj)
 		{
 			if(interactiveObjs == null)
-				interactiveObjs = new ArrayList<InteractiveObj>(3);
+				interactiveObjs = new ArrayList<Interactive>(3);
 			interactiveObjs.add(obj);
 		}
 		
-		boolean pull(InteractiveObj obj)
+		boolean pull(Interactive obj)
 		{
 			if(interactiveObjs == null)
 				return false;
@@ -156,7 +156,7 @@ public class MessageManager implements MessageCallBackRegister, MessageDispenser
 		}
 		
 		@SuppressWarnings("unused")
-		void pushTo(String nodeName, InteractiveObj obj)
+		void pushTo(String nodeName, Interactive obj)
 		{
 			if(sons == null)
 				sons = new HashMap<String, Node>();

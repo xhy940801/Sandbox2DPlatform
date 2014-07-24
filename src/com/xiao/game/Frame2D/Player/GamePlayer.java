@@ -15,7 +15,7 @@ import com.xiao.game.Sandbox2DPlatform.Data.Point;
 import com.xiao.game.Sandbox2DPlatform.Message.ReturnData;
 import com.xiao.game.Sandbox2DPlatform.ObjContainer.StaticObjContainer;
 import com.xiao.game.Sandbox2DPlatform.Object.MoveableObj;
-import com.xiao.game.Sandbox2DPlatform.Object.StaticObj;
+import com.xiao.game.Sandbox2DPlatform.Object.Static;
 
 /**
  * 这是一个玩家类，负责对玩家的控制
@@ -148,8 +148,8 @@ public class GamePlayer extends MoveableObj implements Player
 		MapCoordinate cCoordinate = Calculator.toCoordinate(point);		//获取现在位置所在的地图坐标
 		MapCoordinate tCoordinate = Calculator.toCoordinate(x, y);		//获取将要到达的位置所在的地图坐标
 		
-		StaticObj csObj = (StaticObj) sObjContainer.getObjByCoordinate(cCoordinate);		//获取当前所在位置的静态物体
-		StaticObj tsObj = (StaticObj) sObjContainer.getObjByCoordinate(tCoordinate);		//获取将要到达的位置的静态物体
+		Static csObj = (Static) sObjContainer.getObjByCoordinate(cCoordinate);		//获取当前所在位置的静态物体
+		Static tsObj = (Static) sObjContainer.getObjByCoordinate(tCoordinate);		//获取将要到达的位置的静态物体
 		
 		if(tsObj.height() - csObj.height() > jumpHeight || csObj.height() - tsObj.height() > fallingHeight)		//检查高度差是否合适
 			return false;
@@ -204,21 +204,21 @@ public class GamePlayer extends MoveableObj implements Player
 		
 		if(ox < collisionRadius)
 		{
-			StaticObj xcsObj = (StaticObj) sObjContainer.getObjByCoordinate(tcx + xswap, tcy);
+			Static xcsObj = (Static) sObjContainer.getObjByCoordinate(tcx + xswap, tcy);
 			if(tsObj.height() - xcsObj.height() > jumpHeight || xcsObj.height() - tsObj.height() > fallingHeight)
 				return false;
 		}
 		
 		if(oy < collisionRadius)
 		{
-			StaticObj ycsObj = (StaticObj) sObjContainer.getObjByCoordinate(tcx, tcy + yswap);
+			Static ycsObj = (Static) sObjContainer.getObjByCoordinate(tcx, tcy + yswap);
 			if(tsObj.height() - ycsObj.height() > jumpHeight || ycsObj.height() - tsObj.height() > fallingHeight)
 				return false;
 		}
 		
 		if(oz < collisionRadius)
 		{
-			StaticObj zcsObj = (StaticObj) sObjContainer.getObjByCoordinate(tcx + xswap, tcy + yswap);
+			Static zcsObj = (Static) sObjContainer.getObjByCoordinate(tcx + xswap, tcy + yswap);
 			if(tsObj.height() - zcsObj.height() > jumpHeight || zcsObj.height() - tsObj.height() > fallingHeight)
 				return false;
 		}
@@ -277,6 +277,18 @@ public class GamePlayer extends MoveableObj implements Player
 	public AttributionManager getAttributionManager()
 	{
 		return attributionManager;
+	}
+
+	@Override
+	public boolean init(Context context)
+	{
+		return true;
+	}
+
+	@Override
+	public boolean release(Context context)
+	{
+		return true;
 	}
 
 }

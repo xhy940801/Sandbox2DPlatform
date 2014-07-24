@@ -8,7 +8,7 @@ import com.xiao.game.Sandbox2DPlatform.Controller.Context;
  * @author xiao.hy
  * @see com.xiao.game.Sandbox2DPlatform.Object.GameObj
  */
-public interface ChangeableObj extends GameObj
+public interface Changeable extends GameObj
 {
 	/**
 	 * 下一帧
